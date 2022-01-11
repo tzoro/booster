@@ -1,0 +1,26 @@
+[
+  {
+    "_id": {
+      "$oid": "5ef8e95814ec08001db69eed"
+    },
+    "make": "ALFA ROMEO",
+    "model": "164",
+    "year": 1995
+  },
+  {
+    "_id": {
+      "$oid": "5ef8e95914ec08001db69ef3"
+    },
+    "make": "AUDI",
+    "model": "A6",
+    "year": 1995
+  },
+  {
+    "_id": {
+      "$oid": "5ef8e95914ec08001db69ef9"
+    },
+    "make": "AUDI",
+    "model": "S6",
+    "year": 1995
+  }
+]
