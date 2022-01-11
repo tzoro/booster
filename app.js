@@ -6,18 +6,19 @@ const port = 3000
 
 const fs = require('fs');
 const uuid = require('uuid');
+const morgan = require('morgan');
 
 let rawdata = fs.readFileSync('VehicleInfo.json');
 let cars = JSON.parse(rawdata);
 
 app.use(express.static('public'))
+app.use(morgan('combined'))
 
 var bodyParser = require('body-parser')
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
-
 
 app.set('view engine', 'pug')
 
