@@ -5,6 +5,7 @@ const port = 3000
 // node app.js
 
 const fs = require('fs');
+const uuid = require('uuid');
 
 let rawdata = fs.readFileSync('VehicleInfo.json');
 let cars = JSON.parse(rawdata);
@@ -86,6 +87,17 @@ app.post('/create', (req, res) => {
     if (v_exists) {
       res.end(JSON.stringify({status: 'error', msg: 'Vehicle already exists'}));
     }else{
+      let new_record = {
+        "_id": {
+          "$oid": uuid.v1()
+        },
+        "make": make.toUpperCase(),
+        "model": model.toUpperCase(),
+        "year": year.toUpperCase()
+      }
+      cars.push(new_record);
+      let data = JSON.stringify(cars);
+      fs.writeFileSync('VehicleInfo.json', data);
       res.end(JSON.stringify({status: 'ok', msg: 'Vehicle created'}));
     }
   }
