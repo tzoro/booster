@@ -6,12 +6,8 @@ const port = 3000
 
 const fs = require('fs');
 
-let rawdata = fs.readFileSync('vdata.json');
+let rawdata = fs.readFileSync('VehicleInfo.json');
 let cars = JSON.parse(rawdata);
-
-cars.forEach(function(value){
-  console.log(value);
-});
 
 app.use(express.static('public'))
 app.set('view engine', 'pug')
@@ -31,9 +27,21 @@ app.get('/search', (req, res) => {
     }
   });
 
-  console.log(results)
   res.setHeader('Content-Type', 'application/json');
   res.end(JSON.stringify(results));
+})
+
+app.get('/tabledata', (req, res) => {
+
+  let out = {}
+  out.data = [];
+  
+  cars.forEach(function(value){
+    out.data.push([value.make, value.model, value.year])
+  });
+
+  res.setHeader('Content-Type', 'application/json');
+  res.end(JSON.stringify(out));
 })
 
 app.listen(port, () => {
