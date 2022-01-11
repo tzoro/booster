@@ -1,8 +1,28 @@
 $(function() {
 
+    $( "#s_button" ).on('click', function(){
+
+      var make = $('#make').val();
+      var model = $('#model').val();
+      var year = $('#year').val();
+
+      $.post( "/create", { make: make, model: model, year: year })
+        .done(function( data ) {
+            if(data.status === 'error') {
+                alert(data.msg)
+            } else {
+                if (confirm('Vechicle created')) {
+                    window.location.reload();
+                }
+            }
+        });
+
+        return false;
+    });
+
     $( "#s_input" ).autocomplete({
       source: "search",
-      minLength: 1,
+      minLength: 3,
     });
 
     $('#main_table thead tr')

@@ -30,9 +30,9 @@ html
     form(action='/add', method='POST')
       p
         | Make: 
-        input(type='text', name='title', value='')
+        input(type='text', id='make', name='make', value='')
         |          Model: 
-        input(type='text', name='year', value='')
+        input(type='text', id='model', name='model', value='')
         |          Year: 
-        input(type='text', name='imdb', value='')
-      input(type='submit', value='Save')
+        input(type='text', id='year', name='year', value='')
+      input(type='submit', value='Save', id="s_button")
