@@ -1,0 +1,24 @@
+html
+  head
+    title= title
+    link(rel='stylesheet', href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css')
+    link(rel='stylesheet', href='//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')
+    script(src='//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js')
+    script(src='/app.js')
+  body
+    p
+     h3
+      | Vehicle management login
+    p
+     form(action='/login/password', method='POST')
+      p
+        | Username: 
+        input(type='text', name='username')
+      p
+        | Password: 
+        input(type='password', name='password')
+      p
+       input(type='submit', value='Login')
+     hr
