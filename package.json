@@ -12,7 +12,10 @@
     "body-parser": "^1.19.1",
     "express": "^4.17.2",
     "morgan": "^1.10.0",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
     "pug": "^3.0.2",
+    "sequelize": "^6.13.0",
     "uuid": "^8.3.2"
   }
 }
